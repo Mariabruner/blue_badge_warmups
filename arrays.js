@@ -54,36 +54,62 @@
 //     }
 // }
 
-let cards = [2, 8, "K", 9, 10, 3, 4, "Q", 7, "J", 5, 6, "A"]
-let faceCards = []
-let numberedCards = []
+//Challenge 3
 
-while (cards.length > 0) {
-    let card = cards.pop()
-    console.log(cards)
-    if (isFaceCard(card)) {
-        faceCards.push(card)
-    } else {
-        numberedCards.push(card)
-    }
+// let cards = [2, 8, "K", 9, 10, 3, 4, "Q", 7, "J", 5, 6, "A"]
+// let faceCards = []
+// let numberedCards = []
+
+// while (cards.length > 0) {
+//     let card = cards.pop()
+//     if (isFaceCard(card)) {
+//         faceCards.push(card)
+//     } else {
+//         numberedCards.push(card)
+//     }
+// }
+
+// console.log(cards)
+// console.log(faceCards)
+// console.log(numberedCards)
+
+// function isFaceCard(card){
+//     switch(card){
+//         case "A":
+//         case "K":
+//         case "Q":
+//         case "J":
+//             return true
+//         default: 
+//             return false
+//     }
+// }
+
+let animals = [
+    "bats", "tiger", "yak",
+    "monkey", "snake", "lizard",
+    "panda", "monkey", "hyena"
+]
+
+let zooTrip = {
+    seen: [],
+    animalsSeen: 0
 }
 
-console.log(cards)
-console.log(faceCards)
-console.log(numberedCards)
+animals.forEach((animal) => {
+    console.log(`${animal} was seen today at the zoo!`)
 
-function isFaceCard(card){
-    switch(card){
-        case "A":
-        case "K":
-        case "Q":
-        case "J":
-            return true
-        default: 
-            return false
-    }
-    
+    //Order Dependent Code
+    if(!zooTrip.seen.includes(animal)) zooTrip.animalsSeen++
+    else {console.log(animal, "is a repeat")}
+    seenAtTheZoo(animal)
+})
+
+zooTrip.animalsSeen = new Set(animals).size
+
+
+function seenAtTheZoo(animal){
+    zooTrip.seen.push(animal)
 }
-
 
 
